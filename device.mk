@@ -58,3 +58,12 @@ PRODUCT_COPY_FILES += \
 # Vibrator
 $(call soong_config_set,qti_vibrator,effect_lib,libqtivibratoreffect.xiaomi)
 $(call soong_config_set_bool,qti_vibrator,use_effect_stream,true)
+
+# MIUI Camera
+$(call inherit-product, device/xiaomi/miuicamera-marble/device.mk)
+
+# Dolby
+$(call inherit-product, hardware/dolby/dolby.mk)
+
+# VINTF - keep the base manifest alongside the dolby fragments
+DEVICE_MANIFEST_FILE += device/xiaomi/sm8450-common/vintf/manifest.xml device/xiaomi/sm8450-common/vintf/manifest_xiaomi.xml
